@@ -27,7 +27,7 @@ const Pokedex = () => {
   return (
     <div>
       <p className="greeting">
-        <span>Bienvenido {user}</span>, aqui encontraras tus pokemones favoritos
+        <span>Welcome {user}</span>, here you will find your favorite pokemon.
       </p>
       <Form className="form">
         <div className="form_pokemon">
@@ -62,12 +62,16 @@ const Pokedex = () => {
           <PokemonCard key={pokemon.url} pokemonData={{ pokemon }} />
         ))}
       </section>
-      <div className="flex flex-row gap-2 flex-wrap">
+      <div className="pagination">
         {pokemonsPagination.pages.map((page) => (
           <button
             key={page}
             onClick={() => pokemonsPagination.changePageTo(page)}
-            className={pokemonsPagination.currentPage === page ? 'text-red-500' : ''}
+            className={
+              pokemonsPagination.currentPage === page
+                ? 'actual_pagination'
+                : 'button_pagination'
+            }
           >
             {page}
           </button>

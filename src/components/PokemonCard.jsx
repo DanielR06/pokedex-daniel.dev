@@ -31,7 +31,7 @@ const PokemonCard = ({ pokemonData }) => {
     setPokemon(pokemonInfo);
   };
   const handleClickNavigate = () => {
-    navigate(`/pokedex/${pokemon.id}`, { state: { pokemon } });
+    navigate(`/pokedex/${pokemon.id}`, { state: { pokemon, typeColors } });
   };
   useEffect(() => {
     loadPokemon();
@@ -56,20 +56,21 @@ const PokemonCard = ({ pokemonData }) => {
               className="pokemon_img"
             />
           </div>
-          <div className="pokemon_types">
+          <div>
             {pokemon.types.map((type) => (
-              <article>
+              <article className="pokemon_types">
                 <p style={{ color: `${typeColors[type.type.name]}` }}>{type.type.name}</p>
               </article>
             ))}
           </div>
-          <div></div>
-          {pokemon.stats.map((stat) => (
-            <article className="pokemon_stats">
-              <p>{stat.stat.name}</p>
-              <p>{stat.base_stat}</p>
-            </article>
-          ))}
+          <div>
+            {pokemon.stats.map((stat) => (
+              <article className="pokemon_stats">
+                <p>{stat.stat.name}</p>
+                <p>{stat.base_stat}</p>
+              </article>
+            ))}
+          </div>
         </article>
       )}
     </>
