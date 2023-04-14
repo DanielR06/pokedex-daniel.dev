@@ -294,7 +294,7 @@ body{
 .container_details{
     position: relative;
     background-color: beige;
-    padding-top: 30pxg;
+    padding-top: 30px;
     margin: 10px 20px;
     display: flex;
     flex-direction: column;
