@@ -29,16 +29,22 @@ const Pokedex = () => {
       <p className="greeting">
         <span>Bienvenido {user}</span>, aqui encontraras tus pokemones favoritos
       </p>
-      <div className="form_pokemon">
-        <Form>
+      <Form className="form">
+        <div className="form_pokemon">
           <input
             type="text"
             name="pokemon_name"
             value={pokemonName}
             onChange={handleNameChange}
-            className="input_pokemon"
+            className="input_pokemon_name"
+            placeholder="Search pokemon"
           />
-          <select name="pokemon_type" value={pokemonType} onChange={handleTypeChange}>
+          <select
+            name="pokemon_type"
+            value={pokemonType}
+            onChange={handleTypeChange}
+            className="input_pokemon_type"
+          >
             <option value="">All</option>
             {types.map((type) => (
               <option key={type.url} value={type.name}>
@@ -46,10 +52,12 @@ const Pokedex = () => {
               </option>
             ))}
           </select>
-          <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-        </Form>
-      </div>
-      <section className="flex flex-wrap">
+          <button type="submit" className="btn_search">
+            <i class="bx bx-search-alt-2"></i>
+          </button>
+        </div>
+      </Form>
+      <section className="list_pokemons">
         {pokemonsPagination.listSlice.map((pokemon) => (
           <PokemonCard key={pokemon.url} pokemonData={{ pokemon }} />
         ))}

@@ -174,6 +174,7 @@ body{
 .greeting{
     font-size: 20px;
     text-align: center;
+    margin-bottom: 10px;
 }
 .greeting > span{
     color: #3cb4e7;
@@ -181,7 +182,83 @@ body{
 .form_pokemon{
    display: flex;
    justify-content: center;
+   gap: 5px;
 }
-.input_pokemon{
+.input_pokemon_name{
     background-color:aquamarine;
+    width: 150px;
+    padding-left: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
+.input_pokemon_type{
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.btn_search{
+    width: 30px;
+    background-color: firebrick;
+    border: 0.5px solid black;
+    border-radius: 5px;
+}
+.list_pokemons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    background-color: beige;
+    margin: 10px 20px;
+    padding: 10px 0px;
+    z-index: -2;
+}
+/* Css Pokemon Card */
+.pokemon_card{
+    position: relative;
+    cursor: pointer;
+    max-width: 300px;
+    border-radius: 4px;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: #FFF;
+    border: 1px solid black;
+}
+.pokemon_card::before {
+    content: '';
+    background: radial-gradient(black 33%, transparent 33%);
+    background-size: 3px 3px;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+}
+.pokemon_img_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 200px;
+    margin: 10px auto;
+}
+.pokemon_stats{
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 5px;
+    font-size: 18px;
+}
+.pokemon_img{
+    width: 180px;
+    border-radius: 50%;
+}
+/* Css PokemonDetail */
