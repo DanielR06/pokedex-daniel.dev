@@ -24,13 +24,13 @@ const PokemonDetail = () => {
     console.log(state.pokemon);
   }, []);
   return (
-    <div >
+    <div>
       {pokemon && (
         <div className="container_details">
           <img
             src={
               pokemon?.sprites.other.dream_world.front_default
-                ? pokemon.sprites.front_default
+                ? pokemon.sprites.other.dream_world.front_default
                 : pokeShadow
             }
             alt=""
