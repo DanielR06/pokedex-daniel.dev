@@ -26,9 +26,34 @@ const Pokedex = () => {
   }, [type]);
   return (
     <div>
-      <p>
-        <span>Bienvenido {user}, aqui encontraras tus pokemones favoritos</span>
+      <p className="greeting">
+        <span>Bienvenido {user}</span>, aqui encontraras tus pokemones favoritos
       </p>
+      <div className="form_pokemon">
+        <Form>
+          <input
+            type="text"
+            name="pokemon_name"
+            value={pokemonName}
+            onChange={handleNameChange}
+            className="input_pokemon"
+          />
+          <select name="pokemon_type" value={pokemonType} onChange={handleTypeChange}>
+            <option value="">All</option>
+            {types.map((type) => (
+              <option key={type.url} value={type.name}>
+                {type.name}
+              </option>
+            ))}
+          </select>
+          <button type="submit"><i class='bx bx-search-alt-2'></i></button>
+        </Form>
+      </div>
+      <section className="flex flex-wrap">
+        {pokemonsPagination.listSlice.map((pokemon) => (
+          <PokemonCard key={pokemon.url} pokemonData={{ pokemon }} />
+        ))}
+      </section>
       <div className="flex flex-row gap-2 flex-wrap">
         {pokemonsPagination.pages.map((page) => (
           <button
@@ -40,30 +65,6 @@ const Pokedex = () => {
           </button>
         ))}
       </div>
-      <div>
-        <Form>
-          <input
-            type="text"
-            name="pokemon_name"
-            value={pokemonName}
-            onChange={handleNameChange}
-          />
-          <select name="pokemon_type" value={pokemonType} onChange={handleTypeChange}>
-            <option value="">All</option>
-            {types.map((type) => (
-              <option key={type.url} value={type.name}>
-                {type.name}
-              </option>
-            ))}
-          </select>
-          <button type="submit">Search</button>
-        </Form>
-      </div>
-      <section className="flex flex-wrap">
-        {pokemonsPagination.listSlice.map((pokemon) => (
-          <PokemonCard key={pokemon.url} pokemonData={{ pokemon }} />
-        ))}
-      </section>
     </div>
   );
 };
